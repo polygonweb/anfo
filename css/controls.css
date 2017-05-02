@@ -1,0 +1,309 @@
+/* Элементы управления
+=============================================*/
+
+::-ms-clear {
+	display: none;
+}
+::-ms-reveal {
+	display: none;
+}
+
+/* кнопки */
+.btn {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: inline-block;
+	padding: 0 18px;
+	height: 32px;
+	line-height: 30px;
+	border: 1px solid transparent;
+	font-size: 13px;
+	text-decoration: none;
+	color: #fff;
+	background: #05639F;
+	transition: all .24s;
+}
+	.btn:focus {
+		outline: none;
+	}
+	.btn:hover {
+		background: #4188AF;
+		border-color: #005387;
+	}
+	.btn:active {
+		background: #005387;
+		border-color: transparent;
+		box-shadow: inset 0 0 4px rgba(67, 152, 181, .6);
+	}
+	
+	
+/* Кнопки в ряд */
+.buttons { height: 24px; margin: 15px 0; font-size: 0; }
+	.btn_inline { display: inline-block; vertical-align: middle; height: 24px; padding: 0 20px; font-family: 'Roboto', sans-serif; font-size: 13px; color: #4D4D4D; line-height: 22px; border: 1px solid #999; border-left: none; background: transparent; transition: 0.2s all; outline: none; }
+	.btn_inline:first-child { border-left: 1px solid #999; }
+	.btn_inline:hover { cursor: pointer; background-color: #f2f2f2; }
+	.btn_inline:active { background-color: #e2e2e2; }
+	.btn_inline.active { cursor: default; color: #fff; background-color: #05639F; border-color: #05639F; }
+
+
+
+/* поля ввода */
+.text-input {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 0 8px;
+	height: 24px;
+	font-size: 13px;
+	color: #4D4D4D;
+	border: 1px solid #b2b2b2;
+	transition: all .3s;
+}
+	.text-input:hover {
+		border-color: #05639F;
+	}
+	.text-input:focus {
+		outline: none;
+		border-color: #05639F;
+		box-shadow: 0 0 3px #039CE8;
+	}
+
+	/*поле с ошибкой */
+	.text-input-error {
+		border-color: #ffb2b2;
+	}
+
+	/* блокированное поле */
+	.text-input-disabled {
+		pointer-events: none;
+		cursor: not-allowed;
+		border-color: #E0E0E0;
+		background: #F7F7F7;
+	}
+
+
+/* checkbox 'n' radio */
+/* общие стили */
+.control {
+	display: inline-block;
+	font: 0/0 a;
+	cursor: pointer;
+}
+	/* скрываем настоящий элемент ввода */
+	.control input {
+		position: absolute;
+		clip: rect(0 0 0 0);
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		width: 1px;
+		height: 1px;
+		border: 0;
+	}
+	.control .fake {
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: 1px solid #B2B2B2;
+		background: #fff;
+		transition: all .3s;
+	}
+		.control:hover .fake {
+			border-color: #05639F;
+		}
+		.control:hover .fake {
+			border-color: #05639F;
+		}
+			.control input:checked + .fake {
+				border-color: #05639F;
+			}
+
+
+	/* cтили radio */
+	.control.radio .fake {
+		border-radius: 50%;
+	}
+		.control.radio input:checked + .fake {
+			border-width: 4px;
+		}
+
+	/* cтили checkbox */
+	.control.checkbox > span { display: inline-block; position: relative; vertical-align: top; top: 9px; margin-left: 5px; font-family: 'Roboto', sans-serif; font-size: 13px; border: none; }
+	.control.checkbox .fake {
+		position: relative;
+	}
+		.control.checkbox input:checked + .fake {
+			background: #05639F;
+		}
+			.control.checkbox input:checked + .fake:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: auto;
+				display: inline-block;
+				width: 4px;
+				height: 9px;
+				border: none;
+				border: 2px solid #fff;
+				border-left: none;
+				border-top: none;
+				-webkit-transform: rotate(45deg);
+				    -ms-transform: rotate(45deg);
+				        transform: rotate(45deg);
+			}
+
+	/* блокированный элемент */
+	.control.disabled {
+		pointer-events: none;
+	}
+		.control.disabled .fake,
+		.control input[disabled] + .fake,
+		.control input:disabled + .fake {
+			pointer-events: none;
+			cursor: not-allowed;
+			border-color: #E0E0E0;
+			background: #F7F7F7;
+		}
+
+
+
+
+/*модальные  окна */
+.modal {
+	position: relative;
+	display: inline-block;
+	padding: 30px;
+	border: 1px solid #b3b3b3;
+	background: #fff;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+	.modal-close {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		font: 0/0 a;
+	}
+		.modal-close svg {
+			fill: #999;
+			transition: all .3s;
+		}
+			.modal-close:hover svg {
+				fill: #f13737;
+			}
+
+
+/* Выпадающий календарь */
+.calendar {
+	width: 187px;
+	font-size: 13px;
+	color: #4D4D4D;
+}
+	.calendar-footer {
+		text-align: center;
+	}
+		.calendar-body {
+			overflow: hidden;
+			margin-bottom: 22px;
+		}
+		.calendar-list {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+			.calendar-list li {
+				margin: 0;
+				padding: 3px 0;
+				text-align: center;
+			}
+
+		/* один элемент - год или число */
+		.calendar span {
+			display: inline-block;
+			padding: 0 6px;
+			height: 21px;
+			line-height: 21px;
+			border: 1px solid transparent;
+			cursor: pointer;
+			transition: all .3s ease-out;
+		}
+			.calendar span:hover,
+			.calendar span.active {
+				color: #05639F;
+				border-color: currentColor;
+			}
+
+		.calendar-dates {
+			float: left;
+			overflow: hidden;
+			padding: 0 12px;
+			background: #F1F6F7;
+		}
+		.calendar-years {
+			float: right;
+			overflow: hidden;
+		}
+			.calendar-years .calendar-list {
+				float: left;
+				margin-left: 3px;
+			}
+
+
+/* окно поиска*/
+.search-window {
+	padding-top: 22px;
+}
+	.search-window .modal-close {
+		top: 27px;
+	}
+	.search-window .title {
+		margin-bottom: 25px;
+	}
+	.search-window .search-field {
+		margin-bottom: 10px;
+		display: table;
+		width: 100%;
+	}
+		.search-window .search-field > div {
+			display: table-cell;
+			vertical-align: middle;
+		}
+			.search-window .search-field > div:last-child {
+				width: 1%;
+			}
+		.search-window .search-field .text-input {
+			width: 100%;
+			border-right: none;
+		}
+		.search-window .search-field .btn {
+			padding-right: 0;
+			padding-left: 20px;
+			height: 24px;
+			line-height: 22px;
+			white-space: nowrap;
+		}
+			.search-window .search-field .btn span {
+				display: inline-block;
+			}
+			.search-window .search-field .btn svg {
+				display: inline-block;
+				vertical-align: middle;
+				/*position: relative;
+				top: 3px;*/
+				margin: 0 4px 0 12px;
+				width: 16px;
+				height: 17px;
+			}
+				.search-window .search-field .btn svg path {
+					fill: #fff;
+				}
+				.search-window .search-field .btn svg line {
+					stroke: #fff;
+				}
